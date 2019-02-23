@@ -10,19 +10,19 @@ class RestCountries extends Component {
     };
 
     componentDidMount() {
-        fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha3Code').then(response => {
-            if(response.ok){
-                return response.json();
-            }
-            throw new Error ('Something went wrong with network request');
+        const BASE_URL = 'https://restcountries.eu/rest/v2/all?fields=name;alpha3Code';
+        axios.get(BASE_URL).then(response => {
+            return Promise.all(response.data.map(country => {
+                return axios.get(BASE_URL)
+                    .then(response => {
+                        return {
+                        ...country,
+                        }
+                    });
+                }));
             })
             .then(countries => {
-                const updateCountries = countries.map(country => {
-                    return {
-                        ...country,
-                    }
-                });
-                this.setState({countries: updateCountries})
+                this.setState({countries: countries})
             })
             .catch(error => {
                 console.log(error)
