@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import axios from 'axios';
 import './RestCountries.css';
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 class RestCountries extends Component {
     state = {
@@ -26,7 +27,7 @@ class RestCountries extends Component {
         return (
             <Fragment>
                 <section className='conteiner'>
-
+                    <Sidebar/>
                 </section>
             </Fragment>
         )
