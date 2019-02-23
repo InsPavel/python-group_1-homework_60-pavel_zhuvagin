@@ -32,13 +32,17 @@ class RestCountries extends Component {
     render() {
         return (
             <Fragment>
-                <section className='container'>
-                     <Sidebar>
-                        {this.state.countries.map(country => <Countries
-                            key={country.name}
-                            name={country.name}
-                        />)}
-                        </Sidebar>
+                <section className='my_container'>
+                    <div className="row">
+                        <div className="col col-3">
+                            <Sidebar>
+                                {this.state.countries.map(country => <Countries
+                                    key={country.name}
+                                    name={country.name}
+                                />)}
+                            </Sidebar>
+                        </div>
+                    </div>
                 </section>
             </Fragment>
         )
