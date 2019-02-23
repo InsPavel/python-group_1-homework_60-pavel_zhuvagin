@@ -3,6 +3,7 @@ import axios from 'axios';
 import './RestCountries.css';
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Countries from "../../components/Sidebar/Countries/Countries";
+import Content from "../../components/Content/Content";
 
 class RestCountries extends Component {
     state = {
@@ -41,6 +42,9 @@ class RestCountries extends Component {
                                     name={country.name}
                                 />)}
                             </Sidebar>
+                        </div>
+                        <div className="col col-9">
+                            <Content/>
                         </div>
                     </div>
                 </section>
