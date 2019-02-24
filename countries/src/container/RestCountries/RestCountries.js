@@ -7,7 +7,8 @@ import Content from "../../components/Content/Content";
 
 class RestCountries extends Component {
     state = {
-        countries: []
+        countries: [],
+        selectedCountryName: null,
     };
 
     componentDidMount() {
@@ -30,6 +31,11 @@ class RestCountries extends Component {
             })
     }
 
+    countrySelectHandler = name => {
+        this.setState({selectedCountryName: name})
+    };
+
+
     render() {
         return (
             <Fragment>
@@ -40,11 +46,12 @@ class RestCountries extends Component {
                                 {this.state.countries.map(country => <Countries
                                     key={country.name}
                                     name={country.name}
+                                    clicked = {() => this.countrySelectHandler(country.alpha3Code)}
                                 />)}
                             </Sidebar>
                         </div>
                         <div className="col col-9">
-                            <Content/>
+                            <Content countryCode={this.state.selectedCountryName}/>
                         </div>
                     </div>
                 </section>

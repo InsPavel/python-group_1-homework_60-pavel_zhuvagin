@@ -4,7 +4,7 @@ import './Countries.css';
 class Countries extends Component {
     render() {
         return (
-            <div className="countries">
+            <div className="countries" onClick={this.props.clicked}>
                 <p>{this.props.name}</p>
             </div>
         )
