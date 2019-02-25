@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import axios from 'axios';
 import './InfoCountry.css';
 import BorderWithCountry from "./BorderWithCountry/BorderWithCountry";
@@ -41,19 +41,28 @@ class InfoCountry extends Component {
     render() {
         if(this.state.loadedCountry) {
             return (
+                <Fragment>
                 <div className="info_country">
-                    <p>{this.state.loadedCountry.name}</p>
-                    <p>Capital: {this.state.loadedCountry.capital}</p>
-                    <p>Population: {this.state.loadedCountry.population}</p>
-                    {this.state.borderCountry.map(country => <BorderWithCountry
-                        key={country.alpha3Code}
-                        name={country.name}
-                    />
-                    )}
-                    <div className="flag">
-                        <img src={this.state.loadedCountry.flag}/>
+                    <div className='row'>
+                        <div className="col col-8">
+                            <h1>{this.state.loadedCountry.name}</h1>
+                            <p><span>Capital: </span>{this.state.loadedCountry.capital}</p>
+                            <p><span>Population: </span>{this.state.loadedCountry.population.toLocaleString( )} M</p>
+                        </div>
+                        <div className="flag col col-4">
+                            <img src={this.state.loadedCountry.flag}/>
+                        </div>
                     </div>
-                </div>
+                    </div>
+                    <div className='borders_with_country'>
+                        <h1>Borders with:</h1>
+                        {this.state.borderCountry.map(country => <BorderWithCountry
+                            key={country.alpha3Code}
+                            name={country.name}
+                        />
+                        )}
+                    </div>
+                    </Fragment>
             )
         }
         return <p style={{textAlign: 'center'}}>Please select a Country!</p>;

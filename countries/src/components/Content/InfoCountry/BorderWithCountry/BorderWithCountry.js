@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import './BorderWithCountry.css'
 
 class BorderWithCountry extends  Component{
     render(){
         return (
-            <div>
-                <p>{this.props.name}</p>
-            </div>
+            <ul>
+                <li>{this.props.name}</li>
+            </ul>
         )
     }
 }

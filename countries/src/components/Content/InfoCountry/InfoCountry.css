@@ -1,0 +1,21 @@
+.info_country {
+    width: 100%;
+}
+
+.flag img {
+    border: 1px solid silver;
+    width: 100%;
+}
+
+.info_country h1 {
+    font-size: 30px;
+}
+
+.info_country p {
+    font-size: 17px;
+}
+
+.info_country span {
+    font-size: 17px;
+    font-weight: bold;
+}
