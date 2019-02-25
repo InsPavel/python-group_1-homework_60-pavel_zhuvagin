@@ -33,6 +33,9 @@ class InfoCountry extends Component {
                                     })
                             })
                      })
+                    .catch(error => {
+                    console.log(error)
+            })
             }
         }
     }
@@ -47,10 +50,10 @@ class InfoCountry extends Component {
                         <div className="col col-8">
                             <h1>{this.state.loadedCountry.name}</h1>
                             <p><span>Capital: </span>{this.state.loadedCountry.capital}</p>
-                            <p><span>Population: </span>{this.state.loadedCountry.population.toLocaleString( )} M</p>
+                            <p><span>Population: </span>{this.state.loadedCountry.population.toLocaleString()}</p>
                         </div>
                         <div className="flag col col-4">
-                            <img src={this.state.loadedCountry.flag}/>
+                            <img src={this.state.loadedCountry.flag} alt="flag"/>
                         </div>
                     </div>
                     </div>
